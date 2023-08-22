@@ -1,0 +1,68 @@
+/* Write your CSS code here */
+.header-container {
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.header-website-logo {
+  height: 30px;
+}
+
+.nav-logout-image {
+  height: 30px;
+}
+
+.nav-elements-container {
+  display: none;
+}
+
+.nav-item {
+  font-family: 'Roboto';
+  color: #64748b;
+  list-style-type: none;
+  margin-right: 25px;
+}
+
+.logout-button {
+  background-color: #0967d2;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 12px 5px 12px;
+  border-radius: 3px;
+}
+
+.nav-elements-icon-container {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.nav-icon-item {
+  list-style: none;
+}
+
+.nav-icon-image {
+  height: 25px;
+}
+
+@media (min-width: 991px) {
+  .nav-logout-image {
+    display: none;
+  }
+  .nav-elements-container {
+    display: flex;
+  }
+  .nav-elements-icon-container {
+    display: none;
+  }
+}
