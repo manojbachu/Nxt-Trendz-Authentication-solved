@@ -29,6 +29,20 @@
 
 @media (min-width: 991px) {
   .home-page-container {
-    width: 50%;
+    margin-top: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+  }
+
+  .text-container {
+    width: 40%;
+  }
+
+  .trendz-zone-img {
+    width: 400px;
+    height: 500px;
+    order: 1;
   }
 }

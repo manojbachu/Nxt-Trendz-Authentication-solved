@@ -3,11 +3,12 @@ import {Component} from 'react'
 import './index.css'
 
 class LoginForm extends Component {
-  state = {username: '', password: '', showErrorMsg: false}
+  state = {username: '', password: '', showErrorMsg: false, errorMsg: ''}
 
-  onSubmitFailure = () => {
+  onSubmitFailure = errorMsg => {
     this.setState({
       showErrorMsg: true,
+      errorMsg,
     })
   }
 
@@ -27,11 +28,12 @@ class LoginForm extends Component {
     }
 
     const response = await fetch('https://apis.ccbp.in/login', options)
+    const data = await response.json()
 
     if (response.ok) {
       this.onSubmitSuccess()
     } else {
-      this.onSubmitFailure()
+      this.onSubmitFailure(data.error_msg)
     }
   }
 
@@ -48,7 +50,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {username, password, showErrorMsg} = this.state
+    const {username, password, showErrorMsg, errorMsg} = this.state
     return (
       <div className="user-login-page-container">
         <img
@@ -97,9 +99,7 @@ class LoginForm extends Component {
           <button type="submit" className="submit-button">
             Login
           </button>
-          {showErrorMsg && (
-            <p className="error-msg">*Username and Password didn't match</p>
-          )}
+          {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
         </form>
       </div>
     )
